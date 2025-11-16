@@ -13,7 +13,10 @@ Etapa,Requisito da Entrega,Status,Recursos Necessários
 Ferramentas Utilizadas:
 
 Google GEMINI: É utilizado como ferramenta de apoio e guia durante todo o processo de implantação.
+
 Google Workspace: A suíte de ferramentas do Google (provavelmente incluindo Google Sites, Drive, Docs, etc.) será usada para hospedar a plataforma PortfolioHUB.
+
 Git e GitHub: Serão usados para configurar o ambiente do projeto, gerenciar o controle de versão, o compartilhamento e o controle de acesso, além de servir como armazenamento de projetos.
+
 YouTube: Será utilizado para hospedar a breve apresentação final sobre as etapas da implantação do PortfolioHUB.
 
