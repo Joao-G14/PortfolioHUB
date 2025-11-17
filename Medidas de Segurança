@@ -1,0 +1,29 @@
+# 🛡️ Políticas de Segurança do PortfolioHUB
+
+Este documento detalha as políticas de segurança implementadas no repositório GitHub do PortfolioHUB, garantindo a integridade do código e a conformidade com as melhores práticas de desenvolvimento, conforme orientação do Google GEMINI.
+
+## 1. Proteção da Branch Principal (`main` ou `master`)
+
+A branch principal é considerada a fonte de verdade ("production ready") do PortfolioHUB. Para proteger esta branch de alterações não revisadas ou acidentais, as seguintes regras foram implementadas nas Configurações do Repositório (Settings -> Branches):
+
+| Política | Implementação no GitHub | Racional de Segurança |
+| :--- | :--- | :--- |
+| **Exigir Pull Request** | Ativado (`Require a pull request before merging`) | Nenhuma alteração pode ser mesclada diretamente. Todas as mudanças devem ser propostas via PR, garantindo uma etapa de revisão. |
+| **Exigir Revisão** | Ativado (`Require approvals` > 1) | Garante que o código seja revisado, mesmo que informalmente, antes de ser mesclado. |
+| **Restrição de Push** | Ativado (Regra implícita) | Impede que o código seja enviado (`push`) diretamente para a branch principal, forçando o fluxo via PR. |
+| **Não permitir Force Push** | Ativado (`Do not allow bypassing...`) | Protege o histórico de commits da branch, impedindo que ele seja reescrito ou apagado. |
+
+## 2. Gestão de Acesso e Usuários
+
+Como este é um repositório individual, o controle de acesso é focado em limitar a exposição e garantir que apenas o proprietário (o aluno) tenha permissão de `write` (escrita) ou `admin` (administração).
+
+* **Proprietário:** O aluno mantém permissão `Admin` e é o único revisor autorizado para Pull Requests.
+* **Colaboradores Externos:** Permissões de `Read` (Leitura) são concedidas por padrão para visualização pública e auditoria (professor/avaliador). Permissões de `Write` só são concedidas em casos de colaboração formal em projetos específicos.
+
+## 3. Segurança de Credenciais e Informações Sensíveis
+
+Para evitar vazamento de informações que possam comprometer a segurança, as seguintes práticas são obrigatórias:
+
+* **Uso de `.gitignore`:** Arquivos contendo chaves de API, senhas ou variáveis de ambiente locais são listados no `.gitignore` e nunca são *comitados* no repositório.
+* **Variáveis de Ambiente:** Qualquer credencial ou segredo necessário para *build* ou *deploy* será gerenciado via **GitHub Secrets** (se aplicável), e não armazenado em texto simples no código-fonte.
+* **Auditoria de Commits:** Revisão contínua para garantir que nenhum dado sensível foi acidentalmente exposto.
